@@ -19,16 +19,58 @@ const store = {
       answers: [
         '1970',
         '2015',
-        '2019',
+        '2020',
         '2005'
       ],
-      correctAnswer: '2019'
+      correctAnswer: '2020'
+    }
+    {
+      question: 'Where is the Eiffel Tower',
+      answers: [
+        'Right next to me',
+        'The North Pole',
+        'The South Pole',
+        'Paris'
+      ],
+      correctAnswer: 'Paris'
+    }
+    {
+      question: 'How many inches are in a foot?',
+      answers: [
+        '12',
+        '2097',
+        '4',
+        '15'
+      ],
+      correctAnswer: '12'
+    }
+    {
+      question: 'What is yellow?',
+      answers: [
+        'A year',
+        'A color',
+        'An animal',s
+        'A molecule'
+      ],
+      correctAnswer: 'A color'
     }
   ],
   quizStarted: false,
   questionNumber: 0,
   score: 0
 };
+
+
+function renderStartPage() {
+  //$('.js-start-page').text('This app will help you see if you know easy questions');
+  //$('.js-start-page').text('hello world from JS'); 
+    //`<div class="group"><p>This app will help you see if you know easy questions</p><button type="submit">Start Quiz</button></div>`)
+  $('#js-hello-world').text('hello world from JS');
+}
+
+
+
+renderStartPage();
 
 /**
  * 
