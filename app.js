@@ -23,7 +23,7 @@ const store = {
         '2005'
       ],
       correctAnswer: '2020'
-    }
+    },
     {
       question: 'Where is the Eiffel Tower',
       answers: [
@@ -33,7 +33,7 @@ const store = {
         'Paris'
       ],
       correctAnswer: 'Paris'
-    }
+    },
     {
       question: 'How many inches are in a foot?',
       answers: [
@@ -43,7 +43,7 @@ const store = {
         '15'
       ],
       correctAnswer: '12'
-    }
+    },
     {
       question: 'What is yellow?',
       answers: [
@@ -61,11 +61,13 @@ const store = {
 };
 
 
-function renderStartPage() {
-  //$('.js-start-page').text('This app will help you see if you know easy questions');
-  //$('.js-start-page').text('hello world from JS'); 
-    //`<div class="group"><p>This app will help you see if you know easy questions</p><button type="submit">Start Quiz</button></div>`)
-  $('#js-hello-world').text('hello world from JS');
+function renderStartPage(){
+  return `
+    <div class="introView">
+      <h2>Score 3 of 5 to win!</h2>
+      <button id="start">START</button>
+    </div>
+  `;
 }
 
 
