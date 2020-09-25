@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * Example store structure
  */
@@ -49,7 +51,7 @@ const store = {
       answers: [
         'A year',
         'A color',
-        'An animal',s
+        'An animal',
         'A molecule'
       ],
       correctAnswer: 'A color'
@@ -61,18 +63,62 @@ const store = {
 };
 
 
-function renderStartPage(){
+
+function renderStartPageMain(){
   return `
-    <div class="introView">
+    <div id="startpage">
       <h2>Score 3 of 5 to win!</h2>
       <button id="start">START</button>
     </div>
   `;
 }
 
+function renderStartPageHeader () {
+  return `
+    <h1>Stupid Questions Quiz</h1>
+      <p>Question: ${store['questionNumber']}/5</p>
+      <p>Score: ${store['score']}/5</p>
+  `;
+}
+
+function headerPage() {
+  $('header').html(renderStartPageHeader);
+}
+
+function renderModel(){
+  if(store['quizStarted'] === false){
+    $('main').html(renderStartPageMain);
+  }
+}
+
+function renderQuestion() {
+  return `
+    <div>Question ${store['questionNumber']}
+  `;
+}
+
+function startQuiz() {
+  $('#start').click(function(event) {
+    $('#startpage').hide();
+    store['quizStarted'] = true
+    store['questionNumber'] += 1
+
+  })
+}
 
 
-renderStartPage();
+
+
+
+function main(){
+  headerPage();
+  renderModel();
+  startQuiz();
+
+}
+
+$(main);
+
 
 /**
  * 
