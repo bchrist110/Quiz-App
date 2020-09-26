@@ -6,3 +6,32 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+
+body {
+  background-color: blue;
+  
+}
+
+header {
+  padding-top:50px;
+  text-align: center;
+  color: white;
+}
+
+main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  color: white;
+  border-style: double;
+}
+
+
+form label,
+form p {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: white;
+  font-family: arial;
+}

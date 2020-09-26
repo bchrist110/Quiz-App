@@ -143,14 +143,24 @@ function runQ1() {
   }
 }
 
-function endScreen() {
+function endScreenWin() {
   return `
   <div id="endpage">
-    <h1>You scored ${store['score']}/5</h1>
+    <h1>You scored ${store['score']}/5. You did it!</h1>
     <input type="reset" id="reset"></input>
   </div>
   `
 }
+
+function endScreenLose() {
+  return `
+  <div id="endpage">
+    <h1>You scored ${store['score']}/5. Try Again!</h1>
+    <input type="reset" id="reset"></input>
+  </div>
+  `
+}
+
 
 
 function selectAnswer() {
@@ -165,7 +175,12 @@ function selectAnswer() {
         store['questionNumber'] += 1
       }
       if (store['questionNumber'] == 6) {
-        $('main').html(endScreen)
+        if (store['score'] > 2){
+          $('main').html(endScreenWin)
+        }
+        else {
+          $('main').html(endScreenLose)
+        }
       }
       $('#next').click(function(event){
         headerPage();
