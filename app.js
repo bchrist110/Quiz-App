@@ -97,7 +97,16 @@ function renderEndPageHeader() {
 function renderCorrectAnswer() {
   return `
     <div>
-      <h3>The correct answer was: ${store['questions'][(store['questionNumber'] - 1)]['correctAnswer']}</h3>
+      <h3>Nice! You got it right!</h3>
+      <button id="next">Next</button>
+    </div>
+  `;
+}
+
+function renderIncorrectAnswer() {
+  return `
+    <div>
+      <h3>Wrong! The correct answer was: ${store['questions'][(store['questionNumber'] - 1)]['correctAnswer']}</h3>
       <button id="next">Next</button>
     </div>
   `;
@@ -172,8 +181,12 @@ function selectAnswer() {
   $('#submit').click(function(event){
     var radioValue = $("input:checked").val()
     if (radioValue){
-      $("main").html(renderCorrectAnswer);
+      if (radioValue !== store['questions'][(store['questionNumber'] - 1)]['correctAnswer']) {
+        $("main").html(renderIncorrectAnswer);
+        headerPage();
+      }  
       if (radioValue === store['questions'][(store['questionNumber'] - 1)]['correctAnswer']) {
+        $("main").html(renderCorrectAnswer);
         store['score'] += 1;
         headerPage();
       }
