@@ -170,6 +170,7 @@ function selectAnswer() {
       $("main").html(renderCorrectAnswer);
       if (radioValue === store['questions'][(store['questionNumber'] - 1)]['correctAnswer']) {
         store['score'] += 1;
+        headerPage();
       }
       if (store['questionNumber'] <= 5){
         store['questionNumber'] += 1
@@ -183,7 +184,7 @@ function selectAnswer() {
         }
       }
       $('#next').click(function(event){
-        headerPage();
+        
         runQ1()
       })
       resetAll();
