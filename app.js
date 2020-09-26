@@ -67,6 +67,7 @@ const store = {
 function renderStartPageMain(){
   return `
     <div id="startpage">
+      
       <h2>Score 3 of 5 to win!</h2>
       <button id="start">START</button>
     </div>
@@ -77,14 +78,19 @@ function renderStartPageHeader() {
   return `
     <h1>Stupid Questions Quiz</h1>
       <p id="hide">Question: ${store['questionNumber']}/5</p>
-      <p id="hide">Score: ${store['score']}/5</p>
+      <p id="hide">Score: ${store['score']}</p>
   `;
+}
+
+function renderStartPageReset() {
+  return `
+    <h1>Stupid Questions Quiz</h1>
+  `
 }
 
 function renderEndPageHeader() {
   return `
     <h1>Stupid Questions Quiz</h1>
-    
   `;
 }
 
@@ -96,7 +102,6 @@ function renderCorrectAnswer() {
     </div>
   `;
 }
-
 
 function renderModel(){
   if(store['quizStarted'] === false){
@@ -113,7 +118,9 @@ function headerPage() {
   }
 }
 
-
+function newHeaderPage() {
+  $('header').html(renderStartPageReset);
+}
 function renderQuestion() {
   if (store['questionNumber'] <=5) {
     return `
@@ -161,8 +168,6 @@ function endScreenLose() {
   `
 }
 
-
-
 function selectAnswer() {
   $('#submit').click(function(event){
     var radioValue = $("input:checked").val()
@@ -184,7 +189,6 @@ function selectAnswer() {
         }
       }
       $('#next').click(function(event){
-        
         runQ1()
       })
       resetAll();
@@ -211,19 +215,15 @@ function resetAll() {
       store['questionNumber'] = 0
       store['score'] = 0
       store['quizStarted'] = false
-      headerPage();
+      newHeaderPage()
       renderModel();
       startQuiz();
-      
     })
   }
 }
 
-
-
-
 function main(){
-  headerPage();
+  newHeaderPage()
   renderModel();
   startQuiz();
   resetAll();
