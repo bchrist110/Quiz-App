@@ -8,14 +8,14 @@
 */
 
 body {
-  background-color: blue;
-  
+  background-color: #00008F;
 }
 
 header {
   padding-top:0px;
   text-align: center;
   color: white;
+  font-family:"Georgia"
 }
 
 main {
@@ -24,6 +24,7 @@ main {
   padding-left: 30px;
   color: white;
   border-style: double;
+  font-family:"Georgia"
 }
 
 
