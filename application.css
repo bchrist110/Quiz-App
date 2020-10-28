@@ -1,0 +1,64 @@
+body {
+  background-color: blue;
+  background-clip: padding-box;
+  background-image: url(background.png);
+}
+
+header {
+  padding-top:0px;
+  text-align: center;
+  color: white;
+  font-family:"Georgia";
+  margin: 5px;
+}
+
+main {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: white;
+  border-style: dashed;
+  font-family:"Georgia"; 
+  margin: 5px;
+}
+
+
+form label,
+form p {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: white;
+  font-family: arial;
+}
+
+.hider {
+  display: none
+}
+
+.next {
+  width: "90%";
+  opacity: "0.4";
+  margin-left: "0.6in";
+  font-size: "3em";
+  border-width: "10px"
+}
+
+@media all and (min-width: 800px) {
+  header {
+    padding-top:50px;
+  }
+  
+  main {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+  }
+  
+  
+  form label,
+  form p {
+    font-size: 18px;
+  }
+}
