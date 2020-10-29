@@ -52,67 +52,6 @@ const store = {
       question: "In a game of bingo, what number is represented by the name two little ducks?",
       answers: ["20", "22", "55", "77"],
       correctAnswer: "22"
-    },
-    {
-      question: "According to Greek mythology, who was the first woman on Earth?",
-      answers: ["Pandora", "Lilith", "Eve", "Hera"],
-      correctAnswer: "Pandora"
-    },
-    {
-      question: "In which European city would you find Orly airport?",
-      answers: ["London", "Belgium", "Munich", "Paris"],
-      correctAnswer: "Paris"
-    },
-    {
-      question: "Where would you find the Sea of Tranquility?",
-      answers: ["California", "Siberia", "China", "The Moon"],
-      correctAnswer: "The Moon"
-    },
-    {
-      question: "Which artist painted 'Girl with a Pearl Earrin'?",
-      answers: ["Van Gogh", "Picasso", "Vermeer", "Da Vinci"],
-      correctAnswer: "Vermeer"
-    },
-    {
-      question: "What is the official name for the 'hashtag' symbol?",
-      answers: ["Octothorpe", "Number sign", "Hash Sign", "Pound"],
-      correctAnswer: "Octothorpe"
-    },
-    {
-      question: "Not American at all, where is apple pie from?",
-      answers: ["Japan", "Ethiopia", "England", "Canada"],
-      correctAnswer: "England"
-    },
-    {
-      question: "What is the national animal of Scotland?",
-      answers: ["Bear", "Rabbit", "Seal", "Unicorn"],
-      correctAnswer: "Unicorn"
-    },
-    {
-      question: "Where in the world is the only place where Canada is *due south*",
-      answers: ["Detroit", "Alaska", "Russia", "Washington"],
-      correctAnswer: "Detroit"
-    },
-    {
-      question: "Approximately how many grapes go into a bottle of wine?",
-      answers: ["500", "200", "700", "1000"],
-      correctAnswer: "700"
-    },
-    {
-      question: "How much does a US One Dollar Bill cost to make?",
-      answers: ["$0.25", "$1", "$5", "$0.05"],
-      correctAnswer: "$0.05"
-    },
-    {
-      question: "The Vatican bank has the only ATM in the world that allows users to do what?",
-      answers: [
-        "Receive withdrawls in rosary beads",
-        "Perform transactions in Latin",
-        "Vote for the Pope",
-        "Purchase indulgences"
-        
-      ],
-      correctAnswer: "Perform transactions in Latin"
     }
   ],
   quizStarted: false,
@@ -127,7 +66,7 @@ function renderStartPageMain(){
   return `
     <div id="startpage">
       
-      <h2>Score 15 of 21 to win!</h2>
+      <h2>Score 7 of 10 to win!</h2>
       <button id="start">START</button>
     </div>
   `;
@@ -136,7 +75,7 @@ function renderStartPageMain(){
 function renderStartPageHeader() {
   return `
     <h1>The "Can You Trivia?" Quiz</h1>
-      <p id="hide">Question: ${store['questionNumber']}/21</p>
+      <p id="hide">Question: ${store['questionNumber']}/10</p>
       <p id="hide">Score: ${store['score']}</p>
   `;
 }
@@ -178,7 +117,7 @@ function renderModel(){
 }
 
 function headerPage() {
-  if (store['questionNumber'] == 22) {
+  if (store['questionNumber'] == 11) {
     $('header').html(renderEndPageHeader);
   }
   else {
@@ -190,7 +129,7 @@ function newHeaderPage() {
   $('header').html(renderStartPageReset);
 }
 function renderQuestion() {
-  if (store['questionNumber'] <=21) {
+  if (store['questionNumber'] <=10) {
     return `
       <form class="hider">
         <h2>${store['questions'][(store['questionNumber'] - 1)]['question']}</h2>
@@ -210,7 +149,7 @@ function renderQuestion() {
 
 
 function runQ1() {
-  if (store['question'] == 22){
+  if (store['question'] == 11){
   }
   else {
     $('main').html(renderQuestion);
@@ -222,7 +161,7 @@ function runQ1() {
 function endScreenWin() {
   return `
   <div id="endpage">
-    <h1>You scored ${store['score']}/21. You did it!</h1>
+    <h1>You scored ${store['score']}/10. You did it!</h1>
     <input type="reset" id="reset"></input>
   </div>
   `
@@ -231,7 +170,7 @@ function endScreenWin() {
 function endScreenLose() {
   return `
   <div id="endpage">
-    <h1>You scored ${store['score']}/21. Try Again!</h1>
+    <h1>You scored ${store['score']}/10. Try Again!</h1>
     <input type="reset" id="reset"></input>
   </div>
   `
@@ -269,11 +208,11 @@ function selectAnswer() {
           store['score'] += 1;
           headerPage();
         }
-        if (store['questionNumber'] <= 21){
+        if (store['questionNumber'] <= 10){
           store['questionNumber'] += 1
         }
-        if (store['questionNumber'] == 22) {
-          if (store['score'] > 2){
+        if (store['questionNumber'] == 11) {
+          if (store['score'] > 6){
             $('main').html(endScreenWin)
           }
           else {
@@ -309,7 +248,7 @@ function startQuiz() {
 
 
 function resetAll() {
-  if (store['questionNumber'] == 22) {
+  if (store['questionNumber'] == 11) {
     $("#reset").click(function(event) {
       $('#endpage').hide();
       $('#startpage').show();
