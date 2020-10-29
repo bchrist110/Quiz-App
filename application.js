@@ -177,23 +177,6 @@ function endScreenLose() {
 }
 
 function selectAnswer() {
-  $('#submit').hover(function(event) {
-    $( "#submit" ).animate({
-      width: "90%",
-      opacity: 0.6,
-      marginLeft: "0.6in",
-      fontSize: "3em",
-      borderWidth: "10px"
-    }, 1500 );
-  }, function(event) {
-    $( "#submit" ).animate({
-      width: "90%",
-      opacity: 0.7,
-      marginLeft: "0.6in",
-      fontSize: "3em",
-      borderWidth: "10px"
-    }, 300 );
-  })
   $('#submit').click(function(event){
     var radioValue = $("input:checked").val()
       if (radioValue){
@@ -228,15 +211,6 @@ function selectAnswer() {
 }
 
 function startQuiz() {
-  $('#start').hover(function(event) {
-    $( "#start" ).animate({
-      width: "90%",
-      opacity: 0.4,
-      marginLeft: "0.6in",
-      fontSize: "3em",
-      borderWidth: "10px"
-    }, 1500 );
-  })
   $('#start').click(function(event) {
     $('#startpage').hide();
     store['quizStarted'] = true;
